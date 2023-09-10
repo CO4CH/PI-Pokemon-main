@@ -5,39 +5,44 @@ const { v4: uuidv4 } = require('uuid'); // Importar la función uuidv4
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('pokemon', {
-    ID: {
+    id: {
       type: DataTypes.UUID, // Utilizar UUID como tipo de dato
       defaultValue: () => uuidv4(), // Generar un UUID por defecto
       primaryKey: true,
     },
-    Nombre: {
+    nombre: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    Imagen: {
+    imagen: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    Vida: {
+    vida: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    Ataque: {
+    ataque: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    Defensa: {
+    defensa: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
     Velocidad: {
       type: DataTypes.INTEGER,
     },
-    Altura: {
+    altura: {
       type: DataTypes.FLOAT,
     },
-    Peso: {
+    peso: {
       type: DataTypes.FLOAT,
+    },
+    createdInDb: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
     },
   });
 };

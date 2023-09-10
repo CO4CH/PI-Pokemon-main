@@ -1,0 +1,111 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .img {
+    width: 190px;
+    height: 190px;
+    
+  }
+
+  @font-face {
+    font-family: 'Sono-ExtraBold';
+    src: local('Sono-ExtraBold'), url(../../fonts/Sono-ExtraBold.ttf);
+  }
+
+  .form {
+    font-family: Sono-ExtraBold;
+    font-size: 40px;
+    color: #000000;
+    
+}
+
+a:link {
+  text-decoration: none;
+}
+
+
+/* Estilos para los tipos de Pokémon */
+.grass {
+    color: rgba(16, 150, 23, 0.5);
+  }
+  
+  .fire {
+    background-color: rgba(224, 121, 10, 0.6);
+  }
+  
+  .water {
+    color: rgba(10, 121, 224, 0.3);
+  }
+  
+  .bug {
+    color: rgba(8, 65, 12, 0.5);
+  }
+  
+  .electric {
+    color: rgba(208, 194, 8, 0.6);
+  }
+  
+  .poison {
+    color: rgba(156, 64, 209, 0.6);
+  }
+  
+  .fairy {
+    color: rgba(135, 61, 142, 0.7);
+  }
+  
+  .normal {
+    color: rgba(182, 182, 182, 0.7);
+  }
+  
+  .ground {
+    color: rgba(99, 41, 2, 0.54);
+  }
+  
+  .ghost {
+    color: rgba(63, 14, 67, 0.55);
+  }
+  
+  .flying {
+    color: rgba(113, 154, 182, 0.9);
+  }
+  
+  .fighting {
+    color: rgba(97, 4, 21, 0.48);
+  }
+  
+  .rock {
+    color: rgba(44, 24, 28, 0.6);
+  }
+  
+  .steel {
+    color: rgba(60, 59, 59, 0.4);
+  }
+  
+  .psychic {
+    color: rgba(223, 127, 226, 0.5);
+  }
+  
+  .ice {
+    color: rgba(112, 215, 247, 0.4);
+  }
+  
+  .dragon {
+    color: rgba(59, 63, 255, 0.6);
+  }
+  
+  .dark {
+    color: rgba(48, 48, 49, 0.5);
+  }
+  
+  .shadow {
+    color: #0e0e37c5;
+  }
+  
+  .default {
+    color: #eee8e8a8;
+  }
+  

@@ -1,0 +1,70 @@
+/* Estilos para el contenedor principal */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh; /* Toma el 100% de la altura de la ventana */
+  background-image: url('../../../public/images/background.jpg'); /* Ruta de la imagen de fondo */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  padding: 20px; /* Espacio interior */
+}
+
+/* Estilos para el logo */
+.logo {
+  margin-top: 120px; /* Espacio hacia arriba para el logo */
+  width: 500px;
+}
+
+/* Estilos para el botón de home */
+button {
+  cursor: pointer;
+  margin-top: 150px; /* Espacio hacia arriba para el botón */
+  outline: none;
+  text-decoration: none;
+  border: none;
+  padding: 16px 32px; /* Espaciado interno */
+  color: #fff;
+  font-family: 'Roboto', Arial;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: .5px;
+  line-height: 1;
+  border-radius: 24px;
+  background-image: linear-gradient(45deg, #f81a1a 0%, #f45252 55%, #c30000 90%);
+  background-position: 90% 0;
+  background-size: 200% 200%;
+  box-shadow: 0 2px 8px -1px #3f3709;
+  transition: all 0.5s ease;
+}
+
+/* Estilos para el botón de ingreso al pasar el mouse */
+.button:hover {
+  box-shadow: 0 0px 0px 0 rgba(0, 40, 120, 0);
+  background-position: 0 0;
+  transform: translateY(-5px); /* Mover ligeramente hacia arriba al pasar el mouse */
+}
+
+/* Estilos para la imagen de Charmander */
+.charmander {
+  width: 150px; /* Tamaño de la imagen de Charmander */
+  position: absolute; /* Posición absoluta para controlar su ubicación */
+  bottom: 0; /* Ubicación en la esquina inferior */
+  left: 145px; /* Ubicación en la esquina izquierda */
+}
+
+/* Estilos para la imagen de Bulbasaur */
+.bulbasaur {
+  width: 150px; /* Tamaño de la imagen de Bulbasaur */
+  position: absolute; /* Posición absoluta para controlar su ubicación */
+  bottom: 0; /* Ubicación en la esquina inferior */
+  left: 0; /* Ubicación en la esquina izquierda */
+}
+
+/* Estilos para la imagen de Squirtle */
+.squirtle {
+  width: 150px; /* Tamaño de la imagen de Squirtle */
+  position: absolute; /* Posición absoluta para controlar su ubicación */
+  bottom: 0; /* Ubicación en la esquina inferior */
+  left: 285px; /* Ubicación en la esquina izquierda */
+}

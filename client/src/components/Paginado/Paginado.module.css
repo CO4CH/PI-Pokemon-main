@@ -1,0 +1,44 @@
+/* Estilos para la lista de paginación */
+.pagination {
+    list-style: none; /* Quita los marcadores de lista */
+    display: flex; /* Usa un diseño flexible (flexbox) */
+    flex-direction: row; /* Los elementos se distribuyen en una fila */
+    padding: 0px 300px 20px; /* Relleno en la parte superior, izquierda y derecha, 20px en la parte inferior */
+    justify-content: space-around; /* Distribuye los elementos equitativamente a lo largo del eje principal (horizontal) */
+    text-align: center; /* Alinea el texto al centro */
+}
+
+/* Estilos para los elementos numerados en la paginación */
+.number {
+    text-decoration: none; /* Quita cualquier decoración de texto (como subrayado) */
+    list-style: none; /* Quita los marcadores de lista */
+}
+
+/* Estilos para los botones de paginación */
+.pagButton {
+    padding: 1.5em 2em; /* Espacio interno (padding) alrededor del botón */
+    font-size: 15px; /* Tamaño de fuente */
+    text-transform: uppercase; /* Convierte el texto en mayúsculas */
+    font-weight: 900; /* Grosor de la fuente */
+    color: #0075BE; /* Color del texto */
+    background-color: #FFCC00; /* Color de fondo del botón */
+    border: none; /* Quita los bordes del botón */
+    border-radius: 45px; /* Redondea las esquinas del botón */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Agrega una sombra al botón */
+    transition: all 0.3s ease 0s; /* Suaviza las transiciones durante 0.3 segundos */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    outline: none; /* Quita el contorno alrededor del botón cuando está enfocado */
+}
+
+/* Estilos cuando el cursor se encuentra sobre el botón */
+.pagButton:hover {
+    background-color: #0075BE; /* Cambia el color de fondo al pasar el cursor */
+    box-shadow: 0px 15px 20px #0A285F; /* Cambia la sombra al pasar el cursor */
+    color: rgb(255, 255, 255); /* Cambia el color del texto al pasar el cursor */
+    transform: translateY(-7px); /* Mueve ligeramente el botón hacia arriba al pasar el cursor */
+}
+
+/* Estilos cuando se presiona el botón */
+.pagButton:active {
+    transform: translateY(-1px); /* Mueve ligeramente el botón hacia arriba cuando se presiona */
+}
