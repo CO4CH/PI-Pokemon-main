@@ -3,7 +3,7 @@ const initialState = {
     pokemons: [],           // Lista de Pokémon actual
     allPokemons: [],        // Todos los Pokémon sin filtrar
     types: [],              // Tipos de Pokémon disponibles
-    pokemonDetail: [],      // Detalles de un Pokémon seleccionado
+    detail: [],      // Detalles de un Pokémon seleccionado
 }
 
 // Reducer que gestiona el estado de la aplicación
@@ -41,7 +41,7 @@ function rootReducer(state = initialState, action) {
         case 'GET_DETAILS':
             return {
                 ...state,
-                pokemonDetail: action.payload, // Actualizar los detalles de un Pokémon
+                detail: action.payload, // Actualizar los detalles de un Pokémon
             };
 
         // Caso para ordenar Pokémon por nombre (ascendente o descendente)

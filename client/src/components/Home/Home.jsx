@@ -4,7 +4,7 @@ import { getPokemons, orderByName, filterCreated, orderByAttack, getTypes, filte
 import {Link} from 'react-router-dom';
 import Card from "../Card/Card";
 import Paginado from "../Paginado/Paginado";
-import SearchBar from "../SearchBar/SearchBar";
+import NavBar from "../NavBar/NavBar";
 import styles from "./Home.module.css";
 
 export default function Home(){
@@ -37,11 +37,12 @@ export default function Home(){
         dispatch(getTypes());   
         },[dispatch])
 
-    function handleSort(e){
+    function handleSort(e) {
         e.preventDefault();
-        dispatch(orderByName(e.target.value))
+        console.log('Selected value:', e.target.value); // Agregar esta línea
+        dispatch(orderByName(e.target.value));
         setCurrentPage(1);
-        setOrden(`Ordenado ${e.target.value}`)
+        setOrden(`Ordenado ${e.target.value}`);
     }   
 
     function handleFilterCreated(e){
@@ -65,80 +66,68 @@ export default function Home(){
   
 
     return (
-        <div>
-
-            <h1 className={styles.titulo}>Search by attack, type or even more</h1>
-
-            <div className={styles.buttonContainer}>
-            {/* BOTON CREAR POKEMON */}
-            <button className={styles.buttoncreate}> <Link to= '/pokemon'>Create Pokemon</Link> </button>
-            {/* BOTON RELOAD POKEMON */}
-            <button className={styles.buttonReload} onClick={e => {handleClick(e)}}> Reload Pokemons</button>
-            </div>
-
-            {/* INICIO FILTRADOS */}
-            <div className={styles.selectionfilterscontainer}>
-                
-                    <select className={styles.selectbtns} onChange={e=> handleSort(e)}>
-                        <option>ORDER BY NAME</option>
-                        <option value = 'asc'>Ascending order</option>
-                        <option value = 'desc'>Descending order</option>
-                    </select>
-                    
-                    <select className={styles.selectbtns} onChange={e => {handleSortAttack(e)}}>
-                        <option>STRENGTH</option>
-                        <option value = 'strong'>Stronger attack</option>
-                        <option value = 'weak'>Weaker attack</option>
-                    </select>
-
-                    <select className={styles.selectbtns} onChange={(e) => {handleFilterType(e);}}>
-                        <option>BY TYPE</option>
-                        {types?.map((e) => (
-                        <option value={e.nombre}>{e.nombre}</option>))}
-                    </select>
-
-                    <select className={styles.selectbtns} onChange={e=> handleFilterCreated(e)}>
-                        <option>CREATOR</option>
-                        <option value="all">Show all...</option>
-                        <option value="api">Reals</option>
-                        <option value="created">Created</option>
-                    </select>
-                
-            </div>
-            {/* CIERRE FILTRADOS */}
-
-            <div>        
-                <Paginado
-                    pokemonsPerPage={pokemonsPerPage}
-                    allPokemons = {allPokemons.length}
-                    paginado={paginado}
-                    page={currentPage}
-                />
-            </div>    
+        <div className={styles.home}>
+            <NavBar />
             
-                <SearchBar/>
+            <button onClick={e => {handleClick(e)}} className={styles.poke}><img src={'images/Pokebola.png'} alt="pokebola" width='20px'/> Reload all</button>
 
+            <div className={styles.sortfilter}>
+                <select onChange={e => handleSort(e)}>
+                    <option>Name</option>
+                    <option value="asc">A - Z</option>
+                    <option value="desc">Z - A</option>
+                </select>
 
-            {/* INICIO DE CARD */}
-            <div className={styles.containerCards}>
-                {currentPokemons.map((ob) => {
-                 return(
-                        <div className={styles.cards}>
-                            <Link to ={`/pokemons/${ob.id}`} >
-                                    <Card 
-                                        name={ob.nombre}
-                                        sprite={ob.imagen}
-                                        types={ob.types}
-                                        key={ob.id}/>
-                            </Link>
+                <select onChange={e => handleSortAttack(e)}>
+                    <option>Strength</option>
+                    <option value="strong">Stronger</option>
+                    <option value="weak">Weaker</option>
+                </select>
 
-                        </div>    
-                        )
-                })
-                }
+                <select onChange={e => handleFilterCreated(e)}>
+                    <option value="all">All</option>
+                    <option value="api">API</option>
+                    <option value="created">Created</option>
+                </select>
+                <select onChange={e => handleFilterType(e)}>
+                    <option value="All">All types</option>
+                    {
+                        types.map( type => (
+                            <option value={type.nombre} key={type.nombre}>{type.nombre}</option>
+                        ))
+                    }
+                </select>
             </div>
-            {/* CIERRE DE CARD */}
-
-        </div>//CIERRE DE RETURN
+            <Paginado
+                pokemonsPerPage={pokemonsPerPage}
+                allPokemons = {allPokemons.length}
+                paginado={paginado}
+                page={currentPage}
+            />
+            <div className={styles.cards}>
+            {
+                currentPokemons.length ? 
+                typeof currentPokemons[0] === 'object' ?
+                currentPokemons.map( el => {
+                    return(
+                        <div>
+                            <Link to={"/home/" + el.id} style={{textDecoration:'none'}} key={el.id}>
+                                <Card name={el.nombre} types={el.types} sprite={el.imagen ? el.imagen : "/images/random.png"} key={el.id} weight={el.peso} height={el.altura} />
+                            </Link>
+                        </div>
+                    )
+                }) :
+                <div className={styles.notfound}>
+                    <img src='images/notfound.png'alt="Pokemon not found" width='200px'/>
+                    <span>{currentPokemons[0]} not found</span>
+                </div>
+                :
+                <div className={styles.loading}> 
+                    <img src='images/pokebolaloading.gif'alt="Loading.." width='250px'/>
+                    <p className={styles.loadingtext}>Loading...</p>
+                </div>
+            }
+            </div>
+        </div>
     )
 }

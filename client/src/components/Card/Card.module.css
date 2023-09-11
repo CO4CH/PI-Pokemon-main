@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
 .container {
     display: flex;
     flex-direction: column;
@@ -11,13 +13,8 @@
     
   }
 
-  @font-face {
-    font-family: 'Sono-ExtraBold';
-    src: local('Sono-ExtraBold'), url(../../fonts/Sono-ExtraBold.ttf);
-  }
-
   .form {
-    font-family: Sono-ExtraBold;
+    font-family: 'Poppins', sans-serif;
     font-size: 40px;
     color: #000000;
     
@@ -109,3 +106,13 @@ a:link {
     color: #eee8e8a8;
   }
   
+  .types {
+    display: flex; /* Usamos flexbox para controlar el espaciado horizontal */
+    justify-content: center;
+}
+
+.types img {
+    margin-right: 10px; /* Agrega margen a la derecha de cada imagen, ajusta según tus necesidades */
+    margin-bottom: 40px;
+    margin-top: -10px;
+}

@@ -33,7 +33,6 @@ export default function SearchBar() {
                     value={name}
                     onChange={(e) => handleInputChange(e)}
                 />
-                <button type="submit" className={style.searchBtn} style={{ outline: 'none' }}></button>
             </form>
         </div>
     );

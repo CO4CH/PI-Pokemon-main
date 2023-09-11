@@ -7,11 +7,11 @@ export default function Card({ name, sprite, id, types }) {
         switch (mainType) {
             case 'grass':
                 return styles.grass;
-            case 'fire':
+            case 'Fire':
                 return styles.fire;
-            case 'water':
+            case 'Water':
                 return styles.water;
-            case 'bug':
+            case 'Bug':
                 return styles.bug;
             case 'electric':
                 return styles.electric;
@@ -51,8 +51,8 @@ export default function Card({ name, sprite, id, types }) {
 
 	const Containercard = styled.div`
 		text-transform: capitalize;
-		font-family: 'Sono-ExtraBold';
-		background-color: ${colorPicker(types[0])};
+		font-family: 'Poppins', sans-serif;
+        color: white;
 		display: flex;
 		padding: 5px 10px;
 		border-radius: 10px;
@@ -65,7 +65,7 @@ export default function Card({ name, sprite, id, types }) {
 		&:hover {
 			transform: translateY(-3px);
 			transition: 0.4s ease-in-out;
-			box-shadow: 2px 3px 25px #FFCC00;
+			box-shadow: 2px 3px 25px #09113f;
 		}
 	`;
 
@@ -75,12 +75,10 @@ export default function Card({ name, sprite, id, types }) {
             <div>
                 <img  className={styles.img} src={sprite} alt="Img not found"  width="500px" heigth="550px"/>
                 <h2>{name}</h2>
-                <div>
+                <div className={styles.types}>
                     {types?.map((e)=>{
                         return(
-                            <div>
-                                <span>{e}</span>
-                            </div>
+                            <img src={`images/Types/${e}.png`} alt={e} height="25px" key={e}/>
                         )
                     })}
                 </div>
