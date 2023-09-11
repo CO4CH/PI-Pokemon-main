@@ -46,28 +46,55 @@ function rootReducer(state = initialState, action) {
 
         // Caso para ordenar Pokémon por nombre (ascendente o descendente)
         case 'ORDER_BY_NAME':
-            let sortedArr = action.payload === 'asc' ?
-                state.pokemons.sort(function (a, b) {
-                    if (a.name > b.name) {
+            
+            let sortedArr
+            if(action.payload === 'asc'){
+                sortedArr = state.pokemons.sort(function (a, b){
+                        if(a.nombre > b.nombre){
+                            return 1;
+                        }
+                        if(b.nombre > a.nombre){
+                            return -1;
+                        }
+                        return 0;
+                    }) 
+            }
+            if(action.payload === 'desc'){
+                sortedArr = state.pokemons.sort(function (a, b){
+                        if(a.nombre > b.nombre){
+                            return -1;
+                        }
+                        if(b.nombre > a.nombre){
+                            return 1;
+                        }
+                        return 0;
+                    }) 
+            }
+
+            if(action.payload === 'name'){
+                const apiPokes = state.pokemons.filter( el => !el.createdInDb).sort(function (a, b){
+                    if(a.id > b.id){
                         return 1;
                     }
-                    if (b.name > a.name) {
+                    if(b.id > a.id){
                         return -1;
                     }
                     return 0;
-                }) :
-                state.pokemons.sort(function (a, b) {
-                    if (a.name > b.name) {
-                        return -1;
-                    }
-                    if (b.name > a.name) {
+                }) 
+                const dbPokes = state.pokemons.filter( el => el.createdInDb).sort(function (a, b){
+                    if(a.id > b.id){
                         return 1;
                     }
+                    if(b.id > a.id){
+                        return -1;
+                    }
                     return 0;
-                })
+                }) 
+                sortedArr = [...apiPokes, ...dbPokes]
+            }
             return {
                 ...state,
-                pokemons: sortedArr,        // Actualizar la lista de Pokémon ordenados
+                pokemons: sortedArr,
             }
 
         // Caso para filtrar Pokémon creados en la base de datos o no
@@ -85,8 +112,9 @@ function rootReducer(state = initialState, action) {
 
         // Caso para ordenar Pokémon por fuerza de ataque (ascendente o descendente)
         case 'ORDER_BY_ATTACK':
-            let sortedAttack = action.payload === 'strong' ?
-                state.pokemons.sort(function (a, b) {
+            let sortedAttack 
+            if(action.payload === 'strong'){
+                sortedAttack = state.pokemons.sort(function (a, b){
                     if (a.ataque > b.ataque) {
                         return -1;
                     }
@@ -94,16 +122,40 @@ function rootReducer(state = initialState, action) {
                         return 1;
                     }
                     return 0;
-                }) :
-                state.pokemons.sort(function (a, b) {
-                    if (a.ataque > b.ataque) {
+                }) 
+            }
+            if(action.payload === 'weak'){
+                sortedAttack = state.pokemons.sort(function (a, b){
+                    if(a.ataque > b.ataque) {
+                        return 1;}
+                    if(b.ataque > a.ataque) {
+                        return -1;}
+                    return 0;
+                }) 
+            }
+
+            if(action.payload === 'strength'){
+                const apiPokes = state.pokemons.filter( el => !el.createdInDb).sort(function (a, b){
+                    if(a.id > b.id){
                         return 1;
                     }
-                    if (b.ataque > a.ataque) {
+                    if(b.id > a.id){
                         return -1;
                     }
                     return 0;
-                })
+                }) 
+                const dbPokes = state.pokemons.filter( el => el.createdInDb).sort(function (a, b){
+                    if(a.id > b.id){
+                        return 1;
+                    }
+                    if(b.id > a.id){
+                        return -1;
+                    }
+                    return 0;
+                }) 
+                sortedAttack = [...apiPokes, ...dbPokes]
+            }
+            
             return {
                 ...state,
                 pokemons: sortedAttack,    // Actualizar la lista de Pokémon ordenados por ataque

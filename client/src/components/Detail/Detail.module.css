@@ -1,9 +1,10 @@
+/* Importación de fuentes desde Google Fonts y CDNFonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
 
-/* Detalles de los estilos de la página de detalles */
+/* Estilos de la página de detalles */
 .container {
-  background-color: #232631;; /* Fondo predeterminado */
+  background-color: #232631; /* Color de fondo predeterminado */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,7 +29,7 @@
 }
 
 .details {
-  margin-top: 70px;
+  margin-top: 80px;
   border-radius: 10px;
   width: 35%;
   padding: 20px;
@@ -37,7 +38,6 @@
 }
 
 .header {
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,7 +76,7 @@ img {
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 900;
-  color: #000000;
+  color: #ffffff;
   border: none;
   cursor: pointer;
   outline: none;
@@ -93,7 +93,7 @@ img {
 .buttonDetail:hover {
   background-color: #0075be;
   box-shadow: 0px 15px 20px #0a285f;
-  color: #fff;
+  color: #000000;
   transform: translateY(-7px);
 }
 

@@ -4,16 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import {createPokemon, getTypes, getPokemons} from '../../actions'
 import styles from "./CreatePokemon.module.css";
 import validate from './Validation'
-import swal from 'sweetalert';
 
 export default function PokemonCreated(){
 
     const dispatch = useDispatch();
-    const types = useSelector(state => state.types)
-    const pokemons = useSelector(state => state.allPokemons.map( pok => pok.nombre.toLowerCase()))
-    const history = useHistory()
+    const types = useSelector(state => state.types);
+    const pokemons = useSelector(state => state.allPokemons.map(pok => pok.nombre.toLowerCase()));
+    const history = useHistory();
 
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState({});
     const [section, setSection] = useState(1);
 
     const [input, setInput] = useState({
@@ -26,66 +25,68 @@ export default function PokemonCreated(){
         height: '',
         weight: '',
         types: [],
-    })
+    });
 
     useEffect(() => {
         dispatch(getTypes());
     }, [dispatch]);
 
-    function handleChange(e){
+    function handleChange(e) {
         setInput({
             ...input,
-            [e.target.name] : e.target.value.replaceAll(/^\s+/g, "").replaceAll(/\s+/g, " ")
-        })
+            [e.target.name]: e.target.value.replaceAll(/^\s+/g, "").replaceAll(/\s+/g, " ")
+        });
 
         setErrors(validate({
             ...input,
-            [e.target.name] : e.target.value
-        }, pokemons))
+            [e.target.name]: e.target.value
+        }, pokemons));
     }
 
-    
-    function handleSection(e){
+    function handleSection(e) {
         e.preventDefault();
 
-        Object.keys(errors).length === 1 && errors.types.length ?
-            setSection(section === 1 ? 2 : 1) 
-            :
-            swal("You must complete the form correctly!", "", "error");
+        // Verificar si solo hay un error y si es de tipos, luego cambiar de sección
+        if (Object.keys(errors).length === 1 && errors.types.length) {
+            setSection(section === 1 ? 2 : 1);
+        } else {
+            alert("You must complete the form correctly!");
+        }
     }
 
-    function handleChecked(e){
+    function handleChecked(e) {
         if (e.target.checked) {
             setInput({
-            ...input,
-            types: [...input.types , e.target.value]
-            })
+                ...input,
+                types: [...input.types, e.target.value]
+            });
 
             setErrors(validate({
                 ...input,
-                types: [...input.types , e.target.value]
-            }, pokemons))
-            
+                types: [...input.types, e.target.value]
+            }, pokemons));
+
         } else if (!e.target.checked) {
             setInput({
                 ...input,
                 types: input.types.filter(el => el !== e.target.value)
-                })
+            });
 
             setErrors(validate({
                 ...input,
                 types: input.types.filter(el => el !== e.target.value)
-            }, pokemons))    
+            }, pokemons))
         }
     };
 
-    function handleSubmit(e){
+    function handleSubmit(e) {
         e.preventDefault();
 
-        if(Object.keys(errors).length === 0 && input.name.length){
+        // Verificar si no hay errores y si se ingresó un nombre
+        if (Object.keys(errors).length === 0 && input.name.length) {
             dispatch(createPokemon(input));
             dispatch(getPokemons());
-            swal("Good job!", "Pokemon created successfuly!", "success");
+            alert("Pokemon created successfully!");
             setInput({
                 name: '',
                 image: '',
@@ -96,11 +97,11 @@ export default function PokemonCreated(){
                 weight: '',
                 height: '',
                 types: [],
-            })
-            history.push("/home")
-        } else{
-            swal("You must choose at least one type!", "", "error");
-        }  
+            });
+            history.push("/home");
+        } else {
+            alert("You must choose at least one type!");
+        }
     }
 
 
@@ -294,7 +295,7 @@ export default function PokemonCreated(){
                     </section>
                     <section className={section === 2 ? styles.show : styles.hide}>
                         <div style={{position:'relative'}}> 
-                            <span className={styles.choosetypes} style={{display:'flex', justifyContent:'flex-start', fontFamily:'Open Sans'}}>Choose up to 2 Pokemon types</span>
+                            <span className={styles.choosetypes} style={{display:'flex', justifyContent:'flex-start', fontFamily:'Poppins'}}>Choose up to 2 Pokemon types</span>
 
                             <div className={styles.containertypes}>
                             {

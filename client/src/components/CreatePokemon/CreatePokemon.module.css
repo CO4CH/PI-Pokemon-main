@@ -1,12 +1,17 @@
+/* Importar la fuente de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-.show{
+
+/* Clases para mostrar y ocultar elementos */
+.show {
   display: block;
 }
-.hide{
+
+.hide {
   display: none;
 }
 
-.pagina{
+/* Estilo de la página principal */
+.pagina {
   background: #232631;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -17,7 +22,8 @@
   justify-content: flex-end;
 }
 
-.pagina button{
+/* Estilo de los botones */
+.pagina button {
   border: 2px solid rgb(51, 51, 51);
   border-radius: 8px;
   color: rgb(255, 255, 255);
@@ -32,15 +38,16 @@
   background-position: 90% 0;
   background-size: 200% 200%;
   box-shadow: 0 2px 8px -1px #09113f;
-
   transition: all 0.5s ease;
 }
- .pagina button:hover{
+
+.pagina button:hover {
   box-shadow: 0 0px 0px 0 rgba(0, 40, 120, 0);
   background-position: 0 0;
- }
+}
 
- .createImage {
+/* Estilo de la imagen de fondo */
+.createImage {
   display: flex;
   justify-content: flex-start; /* Alinea a la izquierda */
   align-items: center; /* Centra verticalmente */
@@ -50,19 +57,21 @@
   margin-right: auto;
 }
 
-
-.img{
+/* Estilo para la imagen en el formulario */
+.img {
   margin-right: 15%;
   margin-top: 3%;
 }
 
-.back{
+/* Estilo para el botón de retroceso */
+.back {
   position: fixed;
   left: 8%;
   top: 4%;
 }
 
-.container{
+/* Estilo para el contenedor principal */
+.container {
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 2px 5% rgba(0, 0, 0, 0.3);
@@ -78,20 +87,21 @@
   margin-right: 0.4%;
 }
 
-.formdiv{
+/* Estilo para los elementos del formulario */
+.formdiv {
   margin-top: 20px;
   margin-bottom: 10px;
   padding-bottom: 20px;
   position: relative;
 }
 
-.formdiv label{
+.formdiv label {
   display: flex;
   margin-left: 5%;
   margin-bottom: 5px;
 }
 
-.formdiv input{
+.formdiv input {
   border: 2px solid #f0f0f0;
   border-radius: 4px;
   display: block;
@@ -102,11 +112,10 @@
   margin-left: 2vw;
 }
 
-
 .formdiv i {
   position: absolute;
   top: 40px;
-  left: 54%
+  left: 54%;
 }
 
 .formdiv p {
@@ -117,7 +126,8 @@
   color: #e74c3c;
 }
 
-.container button{
+/* Estilo para los botones en el contenedor principal */
+.container button {
   border: 2px solid rgb(51, 51, 51);
   border-radius: 8px;
   color: #fff;
@@ -135,42 +145,50 @@
   box-shadow: 0 2px 8px -1px #09113f;
 }
 
-.container .previous{
-  background-color: rgb(181, 225, 228);
-  border: 2px solid rgb(136, 209, 214);
-  color: rgb(0, 0, 0);
+.container .previous {
+  border: 2px solid rgb(51, 51, 51);
+  border-radius: 8px;
+  color: rgb(255, 255, 255);
   width: 40%;
   margin-top: 0%;
+  background-image: linear-gradient(45deg, #2378c9 10%, #133079 90%);
+  background-position: 90% 0;
+  background-size: 200% 200%;
+  box-shadow: 0 2px 8px -1px #09113f;
 }
 
-.container .create{
+.container .create {
   width: 40%;
   color: rgb(218, 218, 218);
   margin-top: 0%;
   transition: all 0.4s ease; 
 }
-.container .create:hover{
+
+.container .create:hover {
   box-shadow: 0 0px 0px 0 rgba(0, 40, 120, 0);
   background-position: 0 0;
 }
 
-.choosetypes{
+/* Estilo para el mensaje de "Choose up to 2 Pokemon types" */
+.choosetypes {
   margin-top: 2%;
   margin-left: 4%;
   font-size: 20px;
   font-weight: 500;
 }
 
-.typeserror{
+/* Estilo para el mensaje de error de tipos */
+.typeserror {
   position: absolute;
   font-size: 15px;
   display: flex;
   bottom: -8%;
   left: 4%;
-  color: #e74c3c
+  color: #e74c3c;
 }
 
-.containertypes{
+/* Estilo para el contenedor de tipos de Pokemon */
+.containertypes {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-items: flex-start;
@@ -179,7 +197,7 @@
   margin-top: 4%;
 }
 
-.containertypes label{
+.containertypes label {
   cursor: pointer;
   margin-bottom: 4%;
 }
@@ -196,26 +214,27 @@
   filter: grayscale(0%) opacity(0.95);
 }
 
+/* Estilo para el contenedor de cada tipo de Pokemon */
 .bytype {
   display: flex;
   align-items: center;
 }
 
+/* Estilo para las imágenes de tipos de Pokemon */
 .typesimg {
   filter: grayscale(100%) opacity(0.5);
   transition: filter 0.3s, opacity 0.3s;
 }
 
-
-/* Arrows from input number*/
+/* Arrows from input number */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
--webkit-appearance: none;
-margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* Firefox */
 input[type=number] {
--moz-appearance: textfield;
+  -moz-appearance: textfield;
 }

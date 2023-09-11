@@ -39,7 +39,6 @@ export default function Home(){
 
     function handleSort(e) {
         e.preventDefault();
-        console.log('Selected value:', e.target.value); // Agregar esta línea
         dispatch(orderByName(e.target.value));
         setCurrentPage(1);
         setOrden(`Ordenado ${e.target.value}`);
@@ -73,13 +72,14 @@ export default function Home(){
 
             <div className={styles.sortfilter}>
                 <select onChange={e => handleSort(e)}>
-                    <option>Name</option>
+                    <option value="name">Name</option>
                     <option value="asc">A - Z</option>
                     <option value="desc">Z - A</option>
                 </select>
 
+
                 <select onChange={e => handleSortAttack(e)}>
-                    <option>Strength</option>
+                    <option value="strength">Strength</option>
                     <option value="strong">Stronger</option>
                     <option value="weak">Weaker</option>
                 </select>
@@ -90,10 +90,15 @@ export default function Home(){
                     <option value="created">Created</option>
                 </select>
                 <select onChange={e => handleFilterType(e)}>
-                    <option value="All">All types</option>
+                    <option value="all">All types</option>
                     {
                         types.map( type => (
-                            <option value={type.nombre} key={type.nombre}>{type.nombre}</option>
+                            <option
+                                value={typeof type === 'object' ? type.nombre : type}
+                                key={typeof type === 'object' ? type.nombre : type}
+                                >
+                                {typeof type === 'object' ? type.nombre : type}
+                            </option>
                         ))
                     }
                 </select>
