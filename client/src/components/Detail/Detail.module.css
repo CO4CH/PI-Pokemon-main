@@ -1,57 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
 
-.buttondetail {
-    padding: 1.3em 4em;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 900;
-    color: #0075BE;
-    background-color: #FFCC00;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-
-   }
-   
-   buttodetail:hover {
-    background-color: #0075BE;
-    box-shadow: 0px 15px 20px #0A285F;
-    color: rgb(255, 255, 255);
-    transform: translateY(-7px);
-   }
-   
-   buttondetail:active {
-    transform: translateY(-1px);
-   }
-
-   @font-face {
-    font-family: 'Sono-Regular';
-    src: local('Sono-Regular'), url(../../fonts/Sono-Regular.ttf);
-  }
-
-  .form {
-    font-family: Sono-Regular;
-    font-size: 20px;
-    text-transform: capitalize;
-    
+/* Detalles de los estilos de la página de detalles */
+.container {
+  background-color: #232631;; /* Fondo predeterminado */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pokemon Solid', sans-serif;
+  font-size: 25px;
+  text-transform: capitalize;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative; /* Establece la posición del contenedor como relativa */
 }
 
-p {
-  font-family: Sono-Regular;
-    font-size: 40px;
-    text-transform: capitalize;
+.id {
+  position: absolute; /* Establece la posición del ID como absoluta */
+  top: 10px; /* Ajusta la distancia desde la parte superior */
+  left: 10px; /* Ajusta la distancia desde la izquierda */
+  background-color: rgba(0, 0, 0, 0.5); /* Color de fondo del ID */
+  color: #fff; /* Color del texto del ID */
+  padding: 5px 10px; /* Espaciado interno del ID */
+  border-radius: 5px; /* Borde redondeado del ID */
+}
+
+.details {
+  margin-top: 70px;
+  border-radius: 10px;
+  width: 35%;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.header {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 50px;
+  font-family: 'Pokemon Solid', sans-serif;
 }
 
 .types {
-    display: flex; /* Usamos flexbox para controlar el espaciado horizontal */
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .types img {
-    margin-right: 10px; /* Agrega margen a la derecha de cada imagen, ajusta según tus necesidades */
-    margin-bottom: 40px;
-    margin-top: -10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+img {
+  margin-top: 10px;
+}
+
+.stats {
+  margin-top: 20px;
+}
+
+/* Estilos para el botón */
+.buttonDetail {
+  padding: 1.3em 4em;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 900;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin-top: 20px;
+  border-radius: 45px;
+  background-image: linear-gradient(45deg, #2378c9 10%, #133079 90%);
+  background-position: 90% 0;
+  background-size: 200% 200%;
+  box-shadow: 0 2px 8px -1px #09113f;
+
+  transition: all 0.5s ease;
+}
+
+.buttonDetail:hover {
+  background-color: #0075be;
+  box-shadow: 0px 15px 20px #0a285f;
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.buttonDetail:active {
+  transform: translateY(-1px);
+}
+
+/* Estilos para el mensaje de carga */
+.loading {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loading p {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.loading img {
+  margin-top: 10px;
 }

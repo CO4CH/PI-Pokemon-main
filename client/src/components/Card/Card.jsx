@@ -1,53 +1,7 @@
 import styles from "./Card.module.css";
 import styled from 'styled-components';
 
-export default function Card({ name, sprite, id, types }) {
-
-    function colorPicker(mainType) {
-        switch (mainType) {
-            case 'grass':
-                return styles.grass;
-            case 'Fire':
-                return styles.fire;
-            case 'Water':
-                return styles.water;
-            case 'Bug':
-                return styles.bug;
-            case 'electric':
-                return styles.electric;
-            case 'poison':
-                return styles.poison;
-            case 'fairy':
-                return styles.fairy;
-            case 'normal':
-                return styles.normal;
-            case 'ground':
-                return styles.ground;
-            case 'ghost':
-                return styles.ghost;
-            case 'flying':
-                return styles.flying;
-            case 'fighting':
-                return styles.fighting;
-            case 'rock':
-                return styles.rock;
-            case 'steel':
-                return styles.steel;
-            case 'psychic':
-                return styles.psychic;
-            case 'ice':
-                return styles.ice;
-            case 'dragon':
-                return styles.dragon;
-            case 'dark':
-                return styles.dark;
-            case 'shadow':
-                return styles.shadow;
-            default:
-                return styles.default;
-        }
-    }
-      
+export default function Card({ name, sprite, id, types }) {      
 
 	const Containercard = styled.div`
 		text-transform: capitalize;
@@ -76,9 +30,10 @@ export default function Card({ name, sprite, id, types }) {
                 <img  className={styles.img} src={sprite} alt="Img not found"  width="500px" heigth="550px"/>
                 <h2>{name}</h2>
                 <div className={styles.types}>
-                    {types?.map((e)=>{
+                    {types?.map((type)=>{
+                        let typeName = typeof type === 'object' ? type.nombre : type;
                         return(
-                            <img src={`images/Types/${e}.png`} alt={e} height="25px" key={e}/>
+                            <img src={`images/Types/${typeName}.png`} alt={typeName} height="25px" key={typeName}/>
                         )
                     })}
                 </div>

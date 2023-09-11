@@ -24,7 +24,7 @@ function rootReducer(state = initialState, action) {
                 types: action.payload,        // Actualizar la lista de tipos de Pokémon
             };
 
-        // Caso para crear un nuevo Pokémon (sin lógica actual)
+        // Caso para crear un nuevo Pokémon
         case "CREATE_POKEMON":
             return {
                 ...state,

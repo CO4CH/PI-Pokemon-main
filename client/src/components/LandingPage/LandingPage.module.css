@@ -17,7 +17,7 @@
 }
 
 /* Estilos para el botón de home */
-button {
+.HomeButton {
   cursor: pointer;
   margin-top: 150px; /* Espacio hacia arriba para el botón */
   outline: none;
@@ -39,7 +39,7 @@ button {
 }
 
 /* Estilos para el botón de ingreso al pasar el mouse */
-.button:hover {
+.HomeButton:hover {
   box-shadow: 0 0px 0px 0 rgba(0, 40, 120, 0);
   background-position: 0 0;
   transform: translateY(-5px); /* Mover ligeramente hacia arriba al pasar el mouse */

@@ -3,7 +3,7 @@
 /* Estilos para la lista de paginación */
 .pagination {
     margin-bottom: 40px;
-    margin-top: -70px;
+    margin-top: 70px;
     list-style: none; /* Quita los marcadores de lista */
     display: flex; /* Usa un diseño flexible (flexbox) */
     flex-direction: row; /* Los elementos se distribuyen en una fila */

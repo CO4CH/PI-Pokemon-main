@@ -9,7 +9,7 @@ export default function LandingPage() {
             <div style={{display:'flex', flexFlow:'column'}}>
                 <img className={styles.logo} src='images/logo.png'alt="Pokemon" />
                 <Link to='/home'>
-                    <button> Home </button>
+                    <button className={styles.HomeButton}> Home </button>
                 </Link>
             </div>
             <img className={styles.charmander} src="/images/Charmander.gif" alt="Charmander" />

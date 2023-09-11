@@ -34,10 +34,10 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
     },
     altura: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.INTEGER,
     },
     peso: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.INTEGER,
     },
     createdInDb: {
       type: DataTypes.BOOLEAN,

@@ -97,18 +97,18 @@ router.get("/:idPokemon", async (req, res) => {
 // Ruta para crear un nuevo Pokémon
 router.post("/", async (req, res) => {
     try {
-        const { nombre, imagen, vida, ataque, defensa, velocidad, altura, peso, types } = req.body;
+        const { name, image, hp, attack, defense, speed, height, weight, types } = req.body;
 
         // Crear el Pokémon en la base de datos
         const newPokemon = await Pokemon.create({
-            nombre,
-            imagen,
-            vida,
-            ataque,
-            defensa,
-            velocidad,
-            altura,
-            peso,
+            nombre: name,
+            imagen: image,
+            vida: hp,
+            ataque: attack,
+            defensa: defense,
+            velocidad: speed || null,
+            altura: height || null,
+            peso: weight || null,
         });
 
         // Relacionar los tipos con el nuevo Pokémon
