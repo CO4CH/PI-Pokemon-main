@@ -2,13 +2,17 @@
 
 export default function validate(input, pokemons){
     let errors = {};
-    let RegExpression = /^[a-zA-Z\s]*$/;  
+    let RegExpression = /^[a-zA-Z\s]*$/;
+    let urlExpression = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i; // Expresión regular para validar una URL
+  
 
     if(!input.name){
         errors.name = 'A name is required'
     }
-    if(!input.image){
-        errors.image = 'A image URL is required'
+    if (!input.image) {
+      errors.image = 'An image URL is required';
+    } else if (!urlExpression.test(input.image)) {
+      errors.image = 'Please enter a valid image URL';
     }
     if(pokemons.indexOf( input.name.toLowerCase() ) !== -1){
         errors.name = 'A pokemon with that name is already existing'
@@ -53,21 +57,20 @@ export default function validate(input, pokemons){
         }
       }
     
-      if (input.weight && (input.weight < 1 || input.weight > 1500)) {
-        if (input.weight < 1) {
-          errors.weight = 'The weight of the Pokemon must be higher than 1';
-        }
-        if (input.weight > 1500) {
-          errors.weight = 'The weight of the Pokemon must be less than 1500';
-        }
-      }
-    
       if (input.height && (input.height < 1 || input.height > 80)) {
         if (input.height < 1) {
           errors.height = 'The height of the Pokemon must be higher than 1';
         }
         if (input.height > 80) {
           errors.height = 'The height of the Pokemon must be less than 80';
+        }
+      }
+      if (input.weight && (input.weight < 1 || input.weight > 1500)) {
+        if (input.weight < 1) {
+          errors.weight = 'The weight of the Pokemon must be higher than 1';
+        }
+        if (input.weight > 10000) {
+          errors.weight = 'The weight of the Pokemon must be less than 1500';
         }
       }
     

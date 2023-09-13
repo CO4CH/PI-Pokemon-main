@@ -8,12 +8,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #ffffff;
+  letter-spacing: 3px;
   justify-content: center;
   font-family: 'Pokemon Solid', sans-serif;
-  font-size: 25px;
+  font-size: 35px;
   text-transform: capitalize;
   padding: 20px;
-  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   position: relative; /* Establece la posición del contenedor como relativa */
 }
@@ -24,17 +25,20 @@
   left: 10px; /* Ajusta la distancia desde la izquierda */
   background-color: rgba(0, 0, 0, 0.5); /* Color de fondo del ID */
   color: #fff; /* Color del texto del ID */
+  font-size: 25px; 
   padding: 5px 10px; /* Espaciado interno del ID */
   border-radius: 5px; /* Borde redondeado del ID */
+  white-space: nowrap; /* Evita el ajuste de línea */
 }
 
 .details {
   margin-top: 80px;
   border-radius: 10px;
-  width: 35%;
+  width: 50%;
   padding: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
+  position: relative;
 }
 
 .header {
@@ -42,12 +46,13 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+  margin-top: 25px;
 }
 
 .header h1 {
   margin: 0;
+  letter-spacing: 7px;
   font-size: 50px;
-  font-family: 'Pokemon Solid', sans-serif;
 }
 
 .types {

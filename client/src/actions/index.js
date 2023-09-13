@@ -50,8 +50,11 @@ export function getPokemonByName(name) {
                 type: "GET_POKEMON_BY_NAME",
                 payload: response.data
             });
-        } catch (error) {
-            console.log(error);
+        } catch(error){
+            console.log(error)
+            return dispatch({
+                type: "POKEMON_SEARCH_NOT_FOUND"
+            });
         }
     }
 }

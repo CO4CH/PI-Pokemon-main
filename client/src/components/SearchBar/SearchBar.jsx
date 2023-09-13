@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getPokemonByName } from '../../actions';
 import style from './SearchBar.module.css';
 
 export default function SearchBar() {
     const dispatch = useDispatch();
     const [name, setName] = useState(""); // Inicializa el estado local 'name' con una cadena vacía.
-
     // Función para manejar cambios en el campo de búsqueda.
     function handleInputChange(e) {
         e.preventDefault();
@@ -15,11 +14,16 @@ export default function SearchBar() {
     }
 
     // Función para manejar el envío del formulario de búsqueda.
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
         if (name !== '') {
-            dispatch(getPokemonByName(name)); // Dispara una acción para buscar Pokémon por nombre.
-            setName(""); // Restablece el estado 'name' a una cadena vacía.
+            try {
+                await dispatch(getPokemonByName(name)); // Dispara una acción para buscar Pokémon por nombre.
+                setName(""); // Restablece el estado 'name' a una cadena vacía.
+            } catch (error) {
+                // Manejar errores, si es necesario
+                console.log(error);
+            }
         }
     }
 

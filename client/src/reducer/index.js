@@ -4,6 +4,7 @@ const initialState = {
     allPokemons: [],        // Todos los Pokémon sin filtrar
     types: [],              // Tipos de Pokémon disponibles
     detail: [],      // Detalles de un Pokémon seleccionado
+    searchNotFound: false,
 }
 
 // Reducer que gestiona el estado de la aplicación
@@ -15,6 +16,7 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 pokemons: action.payload,     // Actualizar la lista de Pokémon
                 allPokemons: action.payload,  // Actualizar la lista de todos los Pokémon sin filtrar
+                searchNotFound: false,
             }
 
         // Caso para obtener todos los tipos de Pokémon
@@ -34,7 +36,14 @@ function rootReducer(state = initialState, action) {
         case 'GET_POKEMON_BY_NAME':
             return {
                 ...state,
-                pokemons: action.payload,     // Actualizar la lista de Pokémon filtrados por nombre
+                pokemons: action.payload, 
+                searchNotFound: false    // Actualizar la lista de Pokémon filtrados por nombre
+            };
+
+        case "POKEMON_SEARCH_NOT_FOUND":
+            return {
+                ...state,
+                searchNotFound: true, // Establece searchNotFound en true cuando no se encuentra un Pokémon
             };
 
         // Caso para obtener detalles de un Pokémon

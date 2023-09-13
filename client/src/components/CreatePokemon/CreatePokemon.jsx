@@ -256,7 +256,7 @@ export default function PokemonCreated(){
                             style={input.weight.length ? errors.weight ? {borderColor: '#e74c3c' } : {borderColor: '#2ecc71'} : {}}
                         />
                         {
-                             errors.weight ? (
+                            errors.weight ? (
                                 <div>
                                 <i className="fas fa-exclamation-circle" style={{color: '#e74c3c'}}></i>
                                 <p>{errors.weight}</p>
